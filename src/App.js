@@ -9,12 +9,12 @@ function GamePicker({gameList, setGame, game}) {
       {game || "Choose a game"}
     </button>
     <div className="dropdown-menu">
-      {gameList.map(([shortName, long]) =>
+      {gameList.map(([shortName, object]) =>
         <a className={"dropdown-item " + (shortName === game ? "active" : "")}
         href="#"
         key={shortName}
         onClick={() => setGame(shortName)}>
-          {shortName}: {long}
+          {shortName}: {object.subtitle}
         </a>
       )}
     </div>
@@ -23,10 +23,24 @@ function GamePicker({gameList, setGame, game}) {
   return dropdown
 }
 
+function getRule(ruleset, game) {
+  let rule = ruleset[game.code]
+  if(rule) {
+    return rule
+  }
+  for(let baseRule of game.baseRules) {
+    rule = ruleset[baseRule]
+    if(rule) {
+      return rule
+    }
+  }
+  return ruleset["Rest"]
+}
+
 function DisplayDiffRows({game1, game2}) {
   const rules = Data.rules;
   const differentRules = rules.filter(([heading, ruleset]) =>
-    ruleset[game1] !== ruleset[game2]
+    getRule(ruleset, game1) !== getRule(ruleset, game2)
   )
 
   return <tbody>
@@ -34,8 +48,8 @@ function DisplayDiffRows({game1, game2}) {
       differentRules.map(([heading, ruleset]) => {
         return <tr key={heading}>
           <td>{heading}</td>
-          <td>{ruleset[game1]}</td>
-          <td>{ruleset[game2]}</td>
+          <td>{getRule(ruleset, game1)}</td>
+          <td>{getRule(ruleset, game2)}</td>
         </tr>
       })
     }
@@ -47,8 +61,16 @@ function App() {
     g1[0].localeCompare(g2[0])
   )
 
-  const [g1, setG1] = useState(null)
-  const [g2, setG2] = useState(null)
+  const [gameCode1, setGameCode1] = useState(null)
+  const [gameCode2, getGameCode2] = useState(null)
+
+  const game1 = Data.games[gameCode1]
+  const game2 = Data.games[gameCode2]
+
+  let tableBody = null
+  if(game1 && game2) {
+    tableBody = <DisplayDiffRows game1={game1} game2={game2} />
+  }
 
   return (
     <div className="App">
@@ -68,14 +90,14 @@ function App() {
           <tr>
             <th></th>
             <th>
-              <GamePicker game={g1} setGame={setG1} gameList={sortedGames} />
+              <GamePicker game={gameCode1} setGame={setGameCode1} gameList={sortedGames} />
             </th>
             <th>
-              <GamePicker game={g2} setGame={setG2} gameList={sortedGames} />
+              <GamePicker game={gameCode2} setGame={getGameCode2} gameList={sortedGames} />
             </th>
           </tr>
         </thead>
-        <DisplayDiffRows game1={g1} game2={g2} />
+        {tableBody}
       </table>
     </div>
   );

@@ -3,6 +3,30 @@ const fs = require('fs');
 
 const RULES_DIFFERENCE_FILE = "input/18xx Games - 18xx Rules Difference List - Single Page Version.htm"
 
+// Map of the rulesets that a game is based on.
+const BASE_RULES = {
+  "1822+": ["1822"],
+  "1822MRS (Medium Regional Scenario)": ["1822"],
+  "1830 v1": ["1830"],
+  "1830 v2": ["1830"],
+  "1830 v3": ["1830"],
+  "1830Lummerland": ["1830"],
+  "1830NL": ["1830"],
+  "1876v2": ["1830"],
+  "1899": ["1830"],
+  "18AL": ["18GA"],
+  "1876 (1830)": ["1876", "1830"],
+  "1876 (1835)": ["1876", "1835"],
+  "18SY-G": ["18SY"],
+  "18SY-O": ["18SY"]
+}
+
+// Games which the original page lists as a single entry which we divide into two.
+const COMBINED_GAMES = [
+  "1876",
+  "18SY"
+]
+
 function parseGameList($, h2) {
   const games = {}
   const game_list = $($(h2).next().next())
@@ -14,7 +38,14 @@ function parseGameList($, h2) {
   for(let node = game_list.children()[0]; node !== null; node = node.next) {
     if(node.name === "br") {
       if(game_code !== "") {
-        games[game_code] = gameSubtitle.join(" ")
+        if(!COMBINED_GAMES.includes(game_code)){
+          // We'll skip some games so they don't have individual entries.
+          games[game_code] = {
+            code: game_code,
+            subtitle: gameSubtitle.join(" "),
+            baseRules: BASE_RULES[game_code] || []
+          }
+        }
         game_code = ""
       }
       gameSubtitle = []
@@ -30,6 +61,27 @@ function parseGameList($, h2) {
         gameSubtitle.push(text)
       }
     }
+  }
+
+  games["1876 (1830)"] = {
+    code: "1876 (1830)",
+    subtitle: "Trinidad - using 1830 rules",
+    baseRules: ["1876", "1830"]
+  }
+  games["1876 (1835)"] = {
+    code: "1876 (1835)",
+    subtitle: "Trinidad - using 1835 rules",
+    baseRules: ["1876", "1835"]
+  }
+  games["18SY-G"] = {
+    code: "18SY-G",
+    subtitle: "18SY - Generalisation rules",
+    baseRules: ["18SY"]
+  }
+  games["18SY-O"] = {
+    code: "18SY-O",
+    subtitle: "18SY - Original rules",
+    baseRules: ["18SY"]
   }
 
   return games
@@ -129,7 +181,7 @@ function parseRuleSet($, h2) {
   return appropriateParsers[0].parse($, siblingNodes)
 }
 
-function parsePage(body) {
+function parsePageAndWrite(body) {
   const $ = cheerio.load(body)
 
   // Page is structured around h2 tags. Find them all.
@@ -165,7 +217,7 @@ function loadAndParse() {
       console.log(err)
       throw err
     }
-    parsePage(data)
+    parsePageAndWrite(data)
   })
 }
 
