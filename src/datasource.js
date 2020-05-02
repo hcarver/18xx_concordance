@@ -37,7 +37,7 @@ function parseGameList($, h2) {
   let gameSubtitle = []
 
   for(let node = game_list.children()[0]; node !== null; node = node.next) {
-    if(node.name === "br") {
+    if(node.name === "br" || node.name === "font") {
       if(game_code !== "") {
         if(!COMBINED_GAMES.includes(game_code)){
           // We'll skip some games so they don't have individual entries.

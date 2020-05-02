@@ -86,12 +86,12 @@ function App() {
       </p>
 
       <p>
-        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button className="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           What rules aren't included on this page?
         </button>
       </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+      <div className="collapse" id="collapseExample">
+        <div className="card card-body">
           <p>These sections from the original rules difference list are not yet included here</p>
           <ul>
             <li>1.1 - How much cash do players start with?</li>
