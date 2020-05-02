@@ -27,6 +27,7 @@ const COMBINED_GAMES = [
   "18SY"
 ]
 
+
 function parseGameList($, h2) {
   const games = {}
   const game_list = $($(h2).next().next())
@@ -105,6 +106,8 @@ class ParagraphParser {
     for(let node of nodes) {
       // Iterate through the children of all passed nodes
       for(let child = node.children()[0]; child !== null; child = child[0].next) {
+        if(child === undefined)
+          console.log(node.text())
         child = $(child);
 
         // Strong text indicates a new list of games
@@ -121,11 +124,9 @@ class ParagraphParser {
           for(let game of games){
             game_list.push(game.trim())
           }
-
-          // Text adjacent to the node is the content of the rule
-          const child_text = $(child[0].next).text().trim()
-          if(child_text !== "")
-            rule_text.push(child_text)
+        }
+        else {
+          rule_text.push(child.text().trim())
         }
       }
     }
@@ -146,7 +147,61 @@ class ParagraphParser {
 
 const headingStartToParserMap = {
   "1.2 ": ParagraphParser,
-  "1.3 ": ParagraphParser
+  "1.3 ": ParagraphParser,
+  "1.4 ": ParagraphParser,
+  "2.1 ": ParagraphParser,
+  "2.2 ": ParagraphParser,
+  "2.3 ": ParagraphParser,
+  "2.4 ": ParagraphParser,
+  "2.6 ": ParagraphParser,
+  "2.7 ": ParagraphParser,
+  "2.8 ": ParagraphParser,
+  "2.9 ": ParagraphParser,
+  "2.10 ": ParagraphParser,
+  "2.11 ": ParagraphParser,
+  "3.1 ": ParagraphParser,
+  "3.2 ": ParagraphParser,
+  "3.3 ": ParagraphParser,
+  "3.4 ": ParagraphParser,
+  "4.1 ": ParagraphParser,
+  "4.2 ": ParagraphParser,
+  "5.1 ": ParagraphParser,
+  "5.2 ": ParagraphParser,
+  "5.4 ": ParagraphParser,
+  "6.1 ": ParagraphParser,
+  "6.3 ": ParagraphParser,
+  "6.4 ": ParagraphParser,
+  "7.1 ": ParagraphParser,
+  "7.2 ": ParagraphParser,
+  "7.3 ": ParagraphParser,
+  "7.5 ": ParagraphParser,
+  "8.1 ": ParagraphParser,
+  "8.2 ": ParagraphParser,
+  "8.3 ": ParagraphParser,
+  "8.4 ": ParagraphParser,
+  "9.1 ": ParagraphParser,
+  "9.2 ": ParagraphParser,
+  "9.3 ": ParagraphParser,
+  "9.4 ": ParagraphParser,
+  "9.5 ": ParagraphParser,
+  "9.6 ": ParagraphParser,
+  "10.1 ": ParagraphParser,
+  "10.2 ": ParagraphParser,
+  "10.3 ": ParagraphParser,
+  "10.4 ": ParagraphParser,
+  "10.5 ": ParagraphParser,
+  "10.6 ": ParagraphParser,
+  "11.1 ": ParagraphParser,
+  "11.2 ": ParagraphParser,
+  "11.3 ": ParagraphParser,
+  "13.1 ": ParagraphParser,
+  "13.2 ": ParagraphParser,
+  "13.3 ": ParagraphParser,
+  "13.4 ": ParagraphParser,
+  "14.1 ": ParagraphParser,
+  "14.2 ": ParagraphParser,
+  "14.3 ": ParagraphParser,
+  "14.4 ": ParagraphParser,
 }
 
 function parseRuleSet($, h2) {

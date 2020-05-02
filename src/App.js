@@ -85,6 +85,33 @@ function App() {
         </a>
       </p>
 
+      <p>
+        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          What rules aren't included on this page?
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <p>These sections from the original rules difference list are not yet included here</p>
+          <ul>
+            <li>1.1 - How much cash do players start with?</li>
+            <li>2.5 - What are the player certificate limits?</li>
+            <li>5.3 - Must a tile replacement extend existing track?</li>
+            <li>6.2 - Can you lay more than one station marker per turn?</li>
+            <li>7.4 - Can one train run to two stations on the same tile?</li>
+            <li>7.6 - Rules about villages</li>
+            <li>7.7 - Must the maximum possible revenue be claimed?</li>
+            <li>9.7 - Can a company buy more than one train from the bank per OR?</li>
+            <li>Section 12 - Game Phases</li>
+            <li>15.1 - Total cash in game</li>
+            <li>15.2 - Trains available</li>
+            <li>15.3 - Tiles available</li>
+            <li>15.4 - Other items in limited supply</li>
+            <li>Section 16 - Miscellaneous Points</li>
+          </ul>
+        </div>
+      </div>
+
       <table className="table table-striped">
         <thead>
           <tr>
