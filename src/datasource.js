@@ -11,18 +11,18 @@ function parseGameList($, h2) {
   // A list of strings to be joined later
   let game_name = []
 
-  for(let node = game_list.children()[0]; node != null; node = node.next) {
-    if(node.name == "br") {
+  for(let node = game_list.children()[0]; node !== null; node = node.next) {
+    if(node.name === "br") {
       games[game_code] = game_name.join(" ")
       game_code = ""
       game_name = []
-    } else if((node.name == "b" || node.name == "strong") && game_code == "") {
+    } else if((node.name === "b" || node.name === "strong") && game_code === "") {
       // Not all strong tags are game codes - some are used to highlight parts of the game name.
       // The first strong tag on a line is always the game's code, however.
       game_code = $(node).text()
     } else {
       const text = $(node).text().trim()
-      if(text != ""){
+      if(text !== ""){
         game_name.push(text)
       }
     }
@@ -48,11 +48,11 @@ class ParagraphParser {
     let rule_text = []
     for(let node of nodes) {
       // Iterate through the children of all passed nodes
-      for(let child = node.children()[0]; child != null; child = child[0].next) {
+      for(let child = node.children()[0]; child !== null; child = child[0].next) {
         child = $(child);
 
         // Strong text indicates a new list of games
-        if(child[0].name == "strong" || child[0].name == "b") {
+        if(child[0].name === "strong" || child[0].name === "b") {
           // If we are already maintaining a list of games and rules, store it, and reset.
           if(game_list.length > 0 && rule_text.length > 0){
             this.addToRules(game_list, rule_text)
@@ -68,7 +68,7 @@ class ParagraphParser {
 
           // Text adjacent to the node is the content of the rule
           const child_text = $(child[0].next).text().trim()
-          if(child_text != "")
+          if(child_text !== "")
             rule_text.push(child_text)
         }
       }
@@ -110,7 +110,7 @@ function parseRuleSet($, h2) {
   if(appropriateParsers.length > 1) {
     console.log(`ERROR: found ${appropriateParsers.length} parsers for ${headingText}`)
   }
-  if(appropriateParsers.length == 0) {
+  if(appropriateParsers.length === 0) {
     return null
   }
 
@@ -119,7 +119,7 @@ function parseRuleSet($, h2) {
   const siblingNodes = []
   do {
     siblingNodes.push(sibling)
-  } while(sibling.next() != null && sibling.next().name == "h2")
+  } while(sibling.next() !== null && sibling.next().name === "h2")
 
   // Parse the sibling nodes with the appropriate parser
   return appropriateParsers[0].parse($, siblingNodes)
@@ -139,7 +139,7 @@ function parsePage(body) {
       games = parseGameList($, h2s[i]);
     } else {
       const ruleSet = parseRuleSet($, h2s[i])
-      if(ruleSet != null) {
+      if(ruleSet !== null) {
         rules.push([heading, ruleSet])
       }
     }
@@ -148,16 +148,21 @@ function parsePage(body) {
   console.log(games)
   console.log(rules)
 
-  return {
+  fs.writeFileSync('data.json', JSON.stringify({
     games: games,
     rules: rules
-  }
+  }))
 }
 
-fs.readFile(RULES_DIFFERENCE_FILE, function(err, data) {
-  if(err) {
-    console.log(err)
-    exit(1)
-  }
-  parsePage(data)
-})
+// eslint-disable-next-line
+function loadAndParse() {
+  fs.readFile(RULES_DIFFERENCE_FILE, function(err, data) {
+    if(err) {
+      console.log(err)
+      throw err
+    }
+    parsePage(data)
+  })
+}
+
+loadAndParse()
