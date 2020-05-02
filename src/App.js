@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './App.css';
 
 import Data from './data.json'
-console.log(Data)
 
 function GamePicker({gameList, setGame, game}) {
   const dropdown = <div className="btn-group">
@@ -10,9 +9,10 @@ function GamePicker({gameList, setGame, game}) {
       {game || "Choose a game"}
     </button>
     <div className="dropdown-menu">
-      {Object.entries(gameList).map(([shortName, long]) =>
+      {gameList.map(([shortName, long]) =>
         <a className={"dropdown-item " + (shortName === game ? "active" : "")}
         href="#"
+        key={shortName}
         onClick={() => setGame(shortName)}>
           {shortName}: {long}
         </a>
@@ -23,10 +23,29 @@ function GamePicker({gameList, setGame, game}) {
   return dropdown
 }
 
+function DisplayDiffRows({game1, game2}) {
+  const rules = Data.rules;
+  const differentRules = rules.filter(([heading, ruleset]) =>
+    ruleset[game1] !== ruleset[game2]
+  )
+
+  return <tbody>
+    {
+      differentRules.map(([heading, ruleset]) => {
+        return <tr key={heading}>
+          <td>{heading}</td>
+          <td>{ruleset[game1]}</td>
+          <td>{ruleset[game2]}</td>
+        </tr>
+      })
+    }
+  </tbody>
+}
+
 function App() {
-  const game_list = Object.entries(Data.games).map(([short, long]) => <div>
-    <strong>{short}</strong>: {long}
-  </div>)
+  const sortedGames = Object.entries(Data.games).sort((g1, g2) =>
+    g1[0].localeCompare(g2[0])
+  )
 
   const [g1, setG1] = useState(null)
   const [g2, setG2] = useState(null)
@@ -49,15 +68,14 @@ function App() {
           <tr>
             <th></th>
             <th>
-              <GamePicker game={g1} setGame={setG1} gameList={Data.games} />
+              <GamePicker game={g1} setGame={setG1} gameList={sortedGames} />
             </th>
             <th>
-              <GamePicker game={g2} setGame={setG2} gameList={Data.games} />
+              <GamePicker game={g2} setGame={setG2} gameList={sortedGames} />
             </th>
           </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <DisplayDiffRows game1={g1} game2={g2} />
       </table>
     </div>
   );
