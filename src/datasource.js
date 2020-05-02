@@ -9,21 +9,25 @@ function parseGameList($, h2) {
 
   let game_code = ""
   // A list of strings to be joined later
-  let game_name = []
+  let gameSubtitle = []
 
   for(let node = game_list.children()[0]; node !== null; node = node.next) {
     if(node.name === "br") {
-      games[game_code] = game_name.join(" ")
-      game_code = ""
-      game_name = []
-    } else if((node.name === "b" || node.name === "strong") && game_code === "") {
+      if(game_code !== "") {
+        games[game_code] = gameSubtitle.join(" ")
+        game_code = ""
+      }
+      gameSubtitle = []
+    } else if((node.name === "b" || node.name === "strong") && game_code === "" && gameSubtitle.length === 0) {
       // Not all strong tags are game codes - some are used to highlight parts of the game name.
       // The first strong tag on a line is always the game's code, however.
+      // If there's already some text in the gameSubtitle, then this is a comment line, so should be ignored.
       game_code = $(node).text()
+      gameSubtitle = []
     } else {
       const text = $(node).text().trim()
       if(text !== ""){
-        game_name.push(text)
+        gameSubtitle.push(text)
       }
     }
   }
