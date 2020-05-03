@@ -1,6 +1,6 @@
-# 18XX Concordance
+# 18xx Concordance
 
-This is a project based on the 18XX rules list
+This is a project based on the 18xx rules list
 [maintained by Keith Thomasson](http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm).
 
 This project is intended to not replicate any data on that page at all. That page is a datasource (a local cache is

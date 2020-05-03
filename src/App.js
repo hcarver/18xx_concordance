@@ -77,7 +77,7 @@ function App() {
       <header className="App-header">
         18xx rule concordance
         <p className="App-subheader">
-          Compare the rules of 18XX games, side-by-side.
+          Compare the rules of 18xx games, side-by-side.
         </p>
       </header>
 
@@ -128,7 +128,7 @@ function App() {
           <a href="http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm">http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm</a>
           then please contact Keith Thomasson via the link on that page. That data is where the data for this page
           comes from.</p>
-          <p>If the data is correct on fwtwr.com then please let me know about the bug. I'm @h on the 18XX Slack, and @h
+          <p>If the data is correct on fwtwr.com then please let me know about the bug. I'm @h on the 18xx Slack, and @h
           on the HOGGS Slack too.</p>
         </div>
       </div>
