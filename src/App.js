@@ -76,21 +76,31 @@ function App() {
     <div className="App">
       <header className="App-header">
         18xx rule concordance
+        <p className="App-subheader">
+          Compare the rules of 18XX games, side-by-side.
+        </p>
       </header>
 
       <p className="text-center">
-        Compare the rules of 18XX games, side-by-side.
         <a href="http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm#1">
           Based on this excellent document from Keith Thomasson.
         </a>
       </p>
 
-      <p>
-        <button className="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          What rules aren't included on this page?
-        </button>
-      </p>
-      <div className="collapse" id="collapseExample">
+      <div className="text-center">
+        <div className="btn-group">
+          <button className="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#missingRulesCollapse" aria-expanded="false" aria-controls="missingRulesCollapse">
+            What rules aren't included on this page?
+          </button>
+          <button className="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#ReportBugCollapse" aria-expanded="false" aria-controls="ReportBugCollapse">
+            I found a mistake.
+          </button>
+          <button className="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#HelpOutCollapse" aria-expanded="false" aria-controls="HelpOutCollapse">
+            I want to make this page better.
+          </button>
+        </div>
+      </div>
+      <div className="collapse" id="missingRulesCollapse">
         <div className="card card-body">
           <p>These sections from the original rules difference list are not yet included here</p>
           <ul>
@@ -111,6 +121,33 @@ function App() {
           </ul>
         </div>
       </div>
+      <div className="collapse" id="ReportBugCollapse">
+        <div className="card card-body">
+          <p>Great, thanks for finding it.</p>
+          <p>If it's a problem with the version of the rules on
+          <a href="http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm">http://www.fwtwr.com/18xx/rules_difference_list/single_list.htm</a>
+          then please contact Keith Thomasson via the link on that page. That data is where the data for this page
+          comes from.</p>
+          <p>If the data is correct on fwtwr.com then please let me know about the bug. I'm @h on the 18XX Slack, and @h
+          on the HOGGS Slack too.</p>
+        </div>
+      </div>
+      <div className="collapse" id="HelpOutCollapse">
+        <div className="card card-body">
+          <p>Excellent news!</p>
+          <p>The code for this project lives at <a href="https://github.com/hcarver/18xx_concordance">https://github.com/hcarver/18xx_concordance</a>. Please submit a Pull Request to that repository with your improvement.</p>
+        </div>
+      </div>
+
+      <div className="container">
+      <p>
+        <strong>What do I do? </strong>
+        <p>
+        Pick a game from the dropdown on the left, and another from the dropdown on the right. Then a table should appear
+        listing the rules differences between the two games.
+        </p>
+      </p>
+    </div>
 
       <table className="table table-striped">
         <thead>
