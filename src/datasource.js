@@ -126,7 +126,10 @@ class ParagraphParser {
           }
         }
         else {
-          rule_text.push(child.text().trim())
+          const child_text = child.text().trim()
+          if(child_text !== "" && child_text !== ",") {
+            rule_text.push(child_text)
+          }
         }
       }
     }
