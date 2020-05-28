@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 
+import useQueryString from './useQueryString'
 import Data from './data.json'
 
 function GamePicker({gameList, setGame, game}) {
@@ -61,8 +62,8 @@ function App() {
     g1[0].localeCompare(g2[0])
   )
 
-  const [gameCode1, setGameCode1] = useState(null)
-  const [gameCode2, getGameCode2] = useState(null)
+  const [gameCode1, setGameCode1] = useQueryString("game_1")
+  const [gameCode2, setGameCode2] = useQueryString("game_2")
 
   const game1 = Data.games[gameCode1]
   const game2 = Data.games[gameCode2]
@@ -157,7 +158,7 @@ function App() {
               <GamePicker game={gameCode1} setGame={setGameCode1} gameList={sortedGames} />
             </th>
             <th>
-              <GamePicker game={gameCode2} setGame={getGameCode2} gameList={sortedGames} />
+              <GamePicker game={gameCode2} setGame={setGameCode2} gameList={sortedGames} />
             </th>
           </tr>
         </thead>
