@@ -6,7 +6,7 @@ const RULES_DIFFERENCE_FILE = "input/18xx Games - 18xx Rules Difference List - S
 // Map of the rulesets that a game is based on.
 const BASE_RULES = {
   "1822+": ["1822"],
-  "1822MRS (Medium Regional Scenario)": ["1822"],
+  "1822MRS": ["1822"],
   "1830 v1": ["1830"],
   "1830 v2": ["1830"],
   "1830 v3": ["1830"],
@@ -21,11 +21,18 @@ const BASE_RULES = {
   "18SY-O": ["18SY"]
 }
 
-// Games which the original page lists as a single entry which we divide into two.
+// Games which the original page lists as a single entry which we divide into multiple entries.
 const COMBINED_GAMES = [
   "1876",
   "18SY"
 ]
+
+// Games where the code we parse from the games list isn't the one that's used on the rest of the page.
+const GAME_CODE_MAP = {
+  "1822MRS (Medium Regional Scenario)": "1822MRS",
+  "1862: Railways of the Eastern Counties (1862EA)": "1862EA",
+  "1862 v2: Railways of the Eastern Counties (1862EA v2)": "1862EA v2"
+}
 
 
 function parseGameList($, h2) {
@@ -40,6 +47,13 @@ function parseGameList($, h2) {
     if(node.name === "br" || node.name === "font") {
       if(game_code !== "") {
         if(!COMBINED_GAMES.includes(game_code)){
+          // Map the game code if we've parsed it wrongly. Otherwise, leave it unchanged.
+          if(game_code in GAME_CODE_MAP) {
+            original_code = game_code
+            game_code = GAME_CODE_MAP[game_code]
+            gameSubtitle = [original_code].concat(gameSubtitle)
+          }
+
           // We'll skip some games so they don't have individual entries.
           games[game_code] = {
             code: game_code,

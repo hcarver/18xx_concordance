@@ -249,9 +249,9 @@
             "subtitle": "Canada",
             "baseRules": []
         },
-        "1822MRS (Medium Regional Scenario)": {
-            "code": "1822MRS (Medium Regional Scenario)",
-            "subtitle": "England - entries exist for sections\n1.1 (starting cash), 2.5 (certificate limits) and 15.2 (trains) - use 1822 entries for all\nother aspects",
+        "1822MRS": {
+            "code": "1822MRS",
+            "subtitle": "1822MRS (Medium Regional Scenario) England - entries exist for sections\n1.1 (starting cash), 2.5 (certificate limits) and 15.2 (trains) - use 1822 entries for all\nother aspects",
             "baseRules": [
                 "1822"
             ]
@@ -331,14 +331,14 @@
             "subtitle": "India",
             "baseRules": []
         },
-        "1862: Railways of the Eastern Counties (1862EA)": {
-            "code": "1862: Railways of the Eastern Counties (1862EA)",
-            "subtitle": "East Anglia - LMN+B\nversion (2013)",
+        "1862EA": {
+            "code": "1862EA",
+            "subtitle": "1862: Railways of the Eastern Counties (1862EA) East Anglia - LMN+B\nversion (2013)",
             "baseRules": []
         },
-        "1862 v2: Railways of the Eastern Counties (1862EA v2)": {
-            "code": "1862 v2: Railways of the Eastern Counties (1862EA v2)",
-            "subtitle": "East Anglia - GMT\nGames version (2019)",
+        "1862EA v2": {
+            "code": "1862EA v2",
+            "subtitle": "1862 v2: Railways of the Eastern Counties (1862EA v2) East Anglia - GMT\nGames version (2019)",
             "baseRules": []
         },
         "1865 Sardinia": {
