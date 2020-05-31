@@ -102,9 +102,9 @@ function parseGameList($, h2) {
   return games
 }
 
-class ParagraphParser {
+class AbstractRulesParser {
   static parse($, cxt) {
-    const pp = new ParagraphParser()
+    const pp = new this()
     pp.consume($, cxt)
     return pp.rules
   }
@@ -113,6 +113,70 @@ class ParagraphParser {
     this.rules = {}
   }
 
+  // MUST BE IMPLEMENTED IN SUBCLASS
+  // consume($, nodes) {}
+
+  addToRules(game_list, rule_text) {
+    // Within this loop, we ensure any whitespace in the middle of rules or games codes is replaced with a single space
+    // char
+    if(game_list.length > 0 && rule_text.length > 0){
+      const rule = rule_text.join(" ").replace(/\s+/g, ' ')
+      for(let game of game_list) {
+        game = game.replace(/\s+/g, ' ')
+        this.rules[game] = rule
+      }
+    }
+  }
+}
+
+// This parser assumes that every rule set is separated by line breaks. There will be some strong / bold text which is a list
+// of one or more game codes. There will be some other text (which may include more strong / bold text) which is not a
+// list of game codes.
+class BrBrokenParagraphParser extends AbstractRulesParser {
+  consume($, nodes) {
+    // Maintain a list of games and rules that apply to them
+    let game_list = []
+    let rule_text = []
+
+    // nodes probably just contains a single p tag
+    for(let node of nodes) {
+      // Iterate through the children of all passed nodes
+      for(let child = node.children()[0]; child !== null; child = child[0].next) {
+        if(child === undefined)
+          console.log(node.text())
+
+        child = $(child);
+        if(child[0].name === "br") {
+          this.addToRules(game_list, rule_text)
+          game_list = []
+          rule_text = []
+        }
+
+        // Strong text indicates a new list of games only if we haven't yet encountered some rule text.
+        if(rule_text.length == 0 && (child[0].name === "strong" || child[0].name === "b")) {
+          // List the games in the strong / bold node
+          const games = child.text().split(",")
+          for(let game of games){
+            game_list.push(game.trim())
+          }
+        }
+        else {
+          const child_text = child.text().trim()
+          if(child_text !== "" && child_text !== ",") {
+            rule_text.push(child_text)
+          }
+        }
+      }
+    }
+
+    // When we get to the end of the nodes, we have probably read another rule variant.
+    this.addToRules(game_list, rule_text)
+  }
+}
+
+// This parser assumes there will be some strong / bold text followed by some text that isn't strong or bold.
+// The strong / bold text is the code of one or more games, the remainder is the rules.
+class ParagraphParser extends AbstractRulesParser {
   consume($, nodes) {
     // Maintain a list of games and rules that apply to them
     let game_list = []
@@ -151,18 +215,6 @@ class ParagraphParser {
     // When we get to the end of the nodes, we have probably read another rule variant.
     this.addToRules(game_list, rule_text)
   }
-
-  addToRules(game_list, rule_text) {
-    // Within this loop, we ensure any whitespace in the middle of rules or games codes is replaced with a single space
-    // char
-    if(game_list.length > 0 && rule_text.length > 0){
-      const rule = rule_text.join(" ").replace(/\s+/g, ' ')
-      for(let game of game_list) {
-        game = game.replace(/\s+/g, ' ')
-        this.rules[game] = rule
-      }
-    }
-  }
 }
 
 const headingStartToParserMap = {
@@ -171,7 +223,7 @@ const headingStartToParserMap = {
   "1.4 ": ParagraphParser,
   "2.1 ": ParagraphParser,
   "2.2 ": ParagraphParser,
-  "2.3 ": ParagraphParser,
+  "2.3 ": BrBrokenParagraphParser,
   "2.4 ": ParagraphParser,
   "2.6 ": ParagraphParser,
   "2.7 ": ParagraphParser,
