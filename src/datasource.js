@@ -153,9 +153,12 @@ class ParagraphParser {
   }
 
   addToRules(game_list, rule_text) {
+    // Within this loop, we ensure any whitespace in the middle of rules or games codes is replaced with a single space
+    // char
     if(game_list.length > 0 && rule_text.length > 0){
-      const rule = rule_text.join(" ")
+      const rule = rule_text.join(" ").replace(/\s+/g, ' ')
       for(let game of game_list) {
+        game = game.replace(/\s+/g, ' ')
         this.rules[game] = rule
       }
     }
