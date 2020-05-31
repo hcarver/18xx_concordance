@@ -265,7 +265,7 @@ function parsePageAndWrite(body) {
   fs.writeFileSync('data.json', JSON.stringify({
     games: games,
     rules: rules
-  }))
+  }, null, 4))
 }
 
 // eslint-disable-next-line
