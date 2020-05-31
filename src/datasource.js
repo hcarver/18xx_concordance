@@ -276,9 +276,6 @@ function parsePageAndWrite(body) {
     }
   }
 
-  console.log(games)
-  console.log(rules)
-
   fs.writeFileSync('data.json', JSON.stringify({
     games: games,
     rules: rules
