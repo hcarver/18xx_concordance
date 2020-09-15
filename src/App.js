@@ -3,6 +3,7 @@ import './App.css';
 
 import useQueryString from './useQueryString'
 import Data from './data.json'
+import _ from "lodash"
 
 function GamePicker({gameList, setGame, game}) {
   const dropdown = <div className="btn-group">
@@ -38,10 +39,28 @@ function getRule(ruleset, game) {
   return ruleset["Rest"]
 }
 
+function formatRule(rule) {
+  if(!Array.isArray(rule))
+    return rule
+
+  return <table>
+    <tbody>
+      {
+        rule.map(ruleRow => <tr>
+            {
+              ruleRow.map(ruleCell => <td>{ruleCell}</td>)
+            }
+          </tr>
+        )
+      }
+    </tbody>
+  </table>
+}
+
 function DisplayDiffRows({game1, game2}) {
   const rules = Data.rules;
   const differentRules = rules.filter(([heading, ruleset]) =>
-    getRule(ruleset, game1) !== getRule(ruleset, game2)
+    !_.isEqual(getRule(ruleset, game1), getRule(ruleset, game2))
   )
 
   return <tbody>
@@ -49,8 +68,8 @@ function DisplayDiffRows({game1, game2}) {
       differentRules.map(([heading, ruleset]) => {
         return <tr key={heading}>
           <td>{heading}</td>
-          <td>{getRule(ruleset, game1)}</td>
-          <td>{getRule(ruleset, game2)}</td>
+          <td>{formatRule(getRule(ruleset, game1))}</td>
+          <td>{formatRule(getRule(ruleset, game2))}</td>
         </tr>
       })
     }

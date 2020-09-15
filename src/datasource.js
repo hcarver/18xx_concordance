@@ -34,6 +34,11 @@ const GAME_CODE_MAP = {
   "1862 v2: Railways of the Eastern Counties (1862EA v2)": "1862EA v2"
 }
 
+function replaceTableEntryFromKey(str) {
+  return str.replace("��", "Shares in the yellow and other colored zones do not count towards the limit.").
+    replace("##", "Shares in the yellow and darker zones do not count towards this; shares in the cream zone count half (rounded down) towards the limit.")
+}
+
 
 function parseGameList($, h2) {
   const games = {}
@@ -113,6 +118,10 @@ class AbstractRulesParser {
     this.rules = {}
   }
 
+  standardiseWhitespace(text_bits) {
+    return text_bits.join(" ").replace(/\s+/g, ' ')
+  }
+
   // MUST BE IMPLEMENTED IN SUBCLASS
   // consume($, nodes) {}
 
@@ -120,10 +129,9 @@ class AbstractRulesParser {
     // Within this loop, we ensure any whitespace in the middle of rules or games codes is replaced with a single space
     // char
     if(game_list.length > 0 && rule_text.length > 0){
-      const rule = rule_text.join(" ").replace(/\s+/g, ' ')
       for(let game of game_list) {
         game = game.replace(/\s+/g, ' ')
-        this.rules[game] = rule
+        this.rules[game] = rule_text
       }
     }
   }
@@ -142,12 +150,9 @@ class BrBrokenParagraphParser extends AbstractRulesParser {
     for(let node of nodes) {
       // Iterate through the children of all passed nodes
       for(let child = node.children()[0]; child !== null; child = child[0].next) {
-        if(child === undefined)
-          console.log(node.text())
-
         child = $(child);
         if(child[0].name === "br") {
-          this.addToRules(game_list, rule_text)
+          this.addToRules(game_list, this.standardiseWhitespace(rule_text))
           game_list = []
           rule_text = []
         }
@@ -170,7 +175,7 @@ class BrBrokenParagraphParser extends AbstractRulesParser {
     }
 
     // When we get to the end of the nodes, we have probably read another rule variant.
-    this.addToRules(game_list, rule_text)
+    this.addToRules(game_list, this.standardiseWhitespace(rule_text))
   }
 }
 
@@ -184,8 +189,6 @@ class ParagraphParser extends AbstractRulesParser {
     for(let node of nodes) {
       // Iterate through the children of all passed nodes
       for(let child = node.children()[0]; child !== null; child = child[0].next) {
-        if(child === undefined)
-          console.log(node.text())
         child = $(child);
         if(child[0] === undefined) {
           break
@@ -195,7 +198,7 @@ class ParagraphParser extends AbstractRulesParser {
         if(child[0].name === "strong" || child[0].name === "b") {
           // If we are already maintaining a list of games and rules, store it, and reset.
           if(game_list.length > 0 && rule_text.length > 0){
-            this.addToRules(game_list, rule_text)
+            this.addToRules(game_list, this.standardiseWhitespace(rule_text))
             game_list = []
             rule_text = []
           }
@@ -219,7 +222,61 @@ class ParagraphParser extends AbstractRulesParser {
     }
 
     // When we get to the end of the nodes, we have probably read another rule variant.
-    this.addToRules(game_list, rule_text)
+    this.addToRules(game_list, this.standardiseWhitespace(rule_text))
+  }
+}
+
+class TableParser extends AbstractRulesParser {
+  consume($, nodes) {
+    let game_name = null;
+    let rule_sets = [];
+
+    for(let node of nodes) {
+      if($(node)[0].name !== "table")
+        continue
+
+      const tbody = node.children()[0]
+
+      let headings = []
+      for(let child = tbody.children[0]; child !== null; child = child[0].next) {
+        child = $(child)
+
+        if(child[0].name !== "tr") {
+          continue
+        }
+
+        const content = []
+        child[0].children.map(td => {
+          if(td.name === "td") {
+            const trimmedText = $(td).text().trim()
+            console.log(trimmedText)
+            const replacedText = replaceTableEntryFromKey(trimmedText)
+            content.push(replacedText)
+          }
+        })
+
+        if(headings.length === 0) {
+          headings = content
+          continue
+        }
+
+        const [gameNameCol, ...restOfCols] = content
+        if(gameNameCol) {
+          // Starting a new game
+          if(game_name) {
+            this.addToRules([game_name], rule_sets)
+          }
+          game_name = gameNameCol
+          rule_sets = []
+          const [heading1, ...restOfHeadings] = headings
+          rule_sets.push(restOfHeadings);
+        }
+        rule_sets.push(restOfCols)
+      }
+    }
+    if(game_name) {
+      this.addToRules([game_name], rule_sets)
+    }
   }
 }
 
@@ -231,7 +288,7 @@ const headingStartToParserMap = {
   "2.2 ": ParagraphParser,
   "2.3 ": BrBrokenParagraphParser,
   "2.4 ": ParagraphParser,
-  // "2.5"
+  "2.5 ": TableParser,
   "2.6 ": ParagraphParser,
   "2.7 ": ParagraphParser,
   "2.8 ": ParagraphParser,
