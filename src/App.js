@@ -12,12 +12,11 @@ function GamePicker({gameList, setGame, game}) {
     </button>
     <div className="dropdown-menu">
       {gameList.map(([shortName, object]) =>
-        <a className={"dropdown-item " + (shortName === game ? "active" : "")}
-        href="#"
+        <button className={"dropdown-item " + (shortName === game ? "active" : "")}
         key={shortName}
-        onClick={() => setGame(shortName)}>
+        onClick={(e) => { e.preventDefault(); setGame(shortName)}}>
           {shortName}: {object.subtitle}
-        </a>
+        </button>
       )}
     </div>
   </div>
