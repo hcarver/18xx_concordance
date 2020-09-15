@@ -225,12 +225,14 @@ const headingStartToParserMap = {
   "2.2 ": ParagraphParser,
   "2.3 ": BrBrokenParagraphParser,
   "2.4 ": ParagraphParser,
+  // "2.5"
   "2.6 ": ParagraphParser,
   "2.7 ": ParagraphParser,
   "2.8 ": ParagraphParser,
   "2.9 ": ParagraphParser,
   "2.10 ": ParagraphParser,
   "2.11 ": ParagraphParser,
+  // "2.12" - unneeded, covered by 10.1
   "3.1 ": ParagraphParser,
   "3.2 ": ParagraphParser,
   "3.3 ": ParagraphParser,
@@ -239,6 +241,7 @@ const headingStartToParserMap = {
   "4.2 ": ParagraphParser,
   "5.1 ": ParagraphParser,
   "5.2 ": ParagraphParser,
+  // "5.3" - permissive / restrictive track
   "5.4 ": ParagraphParser,
   "6.1 ": ParagraphParser,
   "6.3 ": ParagraphParser,
