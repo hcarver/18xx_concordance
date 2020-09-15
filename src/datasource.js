@@ -187,6 +187,9 @@ class ParagraphParser extends AbstractRulesParser {
         if(child === undefined)
           console.log(node.text())
         child = $(child);
+        if(child[0] === undefined) {
+          break
+        }
 
         // Strong text indicates a new list of games
         if(child[0].name === "strong" || child[0].name === "b") {
@@ -200,6 +203,9 @@ class ParagraphParser extends AbstractRulesParser {
           // List the games in the strong / bold node
           const games = child.text().split(",")
           for(let game of games){
+            if(game_list.length === 0) {
+              rule_text = []
+            }
             game_list.push(game.trim())
           }
         }
@@ -244,12 +250,16 @@ const headingStartToParserMap = {
   // "5.3" - permissive / restrictive track
   "5.4 ": ParagraphParser,
   "6.1 ": ParagraphParser,
+  // "6.2" - lay more than one station marker per turn?
   "6.3 ": ParagraphParser,
   "6.4 ": ParagraphParser,
   "7.1 ": ParagraphParser,
   "7.2 ": ParagraphParser,
   "7.3 ": ParagraphParser,
+  // "7.4" - can you run one train to two stations on the same tile?
   "7.5 ": ParagraphParser,
+  // "7.6" - Rules about villages
+  // "7.7" - do you have to claim the max possible revenue?
   "8.1 ": ParagraphParser,
   "8.2 ": ParagraphParser,
   "8.3 ": ParagraphParser,
@@ -260,6 +270,7 @@ const headingStartToParserMap = {
   "9.4 ": ParagraphParser,
   "9.5 ": ParagraphParser,
   "9.6 ": ParagraphParser,
+  // "9.7" - can a company buy more than one train per OR?
   "10.1 ": ParagraphParser,
   "10.2 ": ParagraphParser,
   "10.3 ": ParagraphParser,
@@ -269,6 +280,7 @@ const headingStartToParserMap = {
   "11.1 ": ParagraphParser,
   "11.2 ": ParagraphParser,
   "11.3 ": ParagraphParser,
+  // "12" - Game phases
   "13.1 ": ParagraphParser,
   "13.2 ": ParagraphParser,
   "13.3 ": ParagraphParser,
@@ -277,6 +289,11 @@ const headingStartToParserMap = {
   "14.2 ": ParagraphParser,
   "14.3 ": ParagraphParser,
   "14.4 ": ParagraphParser,
+  // "15.1" - total cash in game
+  // "15.2" - trains available
+  // "15.3" - tiles available
+  // "15.4" - other limited items
+  // "16" - other miscellaneous points
 }
 
 function parseRuleSet($, h2) {
@@ -305,7 +322,8 @@ function parseRuleSet($, h2) {
   const siblingNodes = []
   do {
     siblingNodes.push(sibling)
-  } while(sibling.next() !== null && sibling.next().name === "h2")
+    sibling = $(sibling.next())
+  } while(sibling[0] !== null && sibling[0].name !== "h2")
 
   // Parse the sibling nodes with the appropriate parser
   return appropriateParsers[0].parse($, siblingNodes)
