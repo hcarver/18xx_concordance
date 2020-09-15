@@ -226,6 +226,51 @@ class ParagraphParser extends AbstractRulesParser {
   }
 }
 
+class HeaderlessTableParser extends AbstractRulesParser {
+  consume($, nodes) {
+    let game_name = null;
+    let rule_sets = [];
+
+    for(let node of nodes) {
+      if($(node)[0].name !== "table")
+        continue
+
+      const tbody = node.children()[0]
+
+      for(let child = tbody.children[0]; child !== null; child = child[0].next) {
+        child = $(child)
+
+        if(child[0].name !== "tr") {
+          continue
+        }
+
+        const content = []
+        child[0].children.map(td => {
+          if(td.name === "td") {
+            const trimmedText = $(td).text().trim()
+            const replacedText = replaceTableEntryFromKey(trimmedText)
+            content.push(replacedText)
+          }
+        })
+
+        const [gameNameCol, ...restOfCols] = content
+        if(gameNameCol) {
+          // Starting a new game
+          if(game_name) {
+            this.addToRules([game_name], rule_sets)
+          }
+          game_name = gameNameCol
+          rule_sets = []
+        }
+        rule_sets.push(restOfCols)
+      }
+    }
+    if(game_name) {
+      this.addToRules([game_name], rule_sets)
+    }
+  }
+}
+
 class TableParser extends AbstractRulesParser {
   consume($, nodes) {
     let game_name = null;
@@ -249,7 +294,6 @@ class TableParser extends AbstractRulesParser {
         child[0].children.map(td => {
           if(td.name === "td") {
             const trimmedText = $(td).text().trim()
-            console.log(trimmedText)
             const replacedText = replaceTableEntryFromKey(trimmedText)
             content.push(replacedText)
           }
@@ -346,10 +390,10 @@ const headingStartToParserMap = {
   "14.2 ": ParagraphParser,
   "14.3 ": ParagraphParser,
   "14.4 ": ParagraphParser,
-  // "15.1" - total cash in game
+  "15.1" : HeaderlessTableParser,
   // "15.2" - trains available
   // "15.3" - tiles available
-  // "15.4" - other limited items
+  "15.4" : HeaderlessTableParser,
   // "16" - other miscellaneous points
 }
 

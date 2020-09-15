@@ -10271,6 +10271,832 @@
                 "1869 USA West": "Secret.",
                 "Rest": "Unspecified. Usually assumed to be public."
             }
+        ],
+        [
+            "15.1 - Total cash in game",
+            {
+                "1761": [
+                    [
+                        "12,000 (add more if needed - effectively unlimited)"
+                    ]
+                ],
+                "1800": [
+                    [
+                        "3,720"
+                    ]
+                ],
+                "1812": [
+                    [
+                        "4,000 for 2 players\n    6,000 for 3 players\n    8,000 for 4 players"
+                    ]
+                ],
+                "1817": [
+                    [
+                        "12,000 (add more if needed - effectively unlimited)"
+                    ]
+                ],
+                "1822": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1824": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1825": [
+                    [
+                        "Originally intended to be 4,000 for Unit 1, but initial sets were erroneously issued\n    with 2,600; later increased to 5,000; Lawson sets include 6,000\n    5,000 for Unit 2\n    4,000 for Unit 3"
+                    ]
+                ],
+                "1826": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1829": [
+                    [
+                        "20,000"
+                    ]
+                ],
+                "1830": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1831": [
+                    [
+                        "10,000 plus 2,000 times number of players for standard bank - add 10,000 for extended\n    game"
+                    ]
+                ],
+                "1832": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1834": [
+                    [
+                        "7,500"
+                    ]
+                ],
+                "1835": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1837": [
+                    [
+                        "14,268"
+                    ]
+                ],
+                "1841": [
+                    [
+                        "14,640"
+                    ]
+                ],
+                "1842": [
+                    [
+                        "11,810"
+                    ]
+                ],
+                "1844": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1846": [
+                    [
+                        "6,500 for three players\n    7,500 for four players\n    9,000 for five players"
+                    ]
+                ],
+                "1847": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "1848": [
+                    [
+                        "10,000 plus 2,000 for the Bank of England"
+                    ]
+                ],
+                "1849": [
+                    [
+                        "7,760 used for game (8,040 supplied in set)"
+                    ]
+                ],
+                "1850": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1851": [
+                    [
+                        "8,040"
+                    ]
+                ],
+                "1853": [
+                    [
+                        "12,500 (approx.)"
+                    ]
+                ],
+                "1854": [
+                    [
+                        "9,672"
+                    ]
+                ],
+                "1856": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1857": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "1858": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1859": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "1860": [
+                    [
+                        "10,000"
+                    ]
+                ],
+                "1861": [
+                    [
+                        "15,000"
+                    ]
+                ],
+                "1862": [
+                    [
+                        "22,000"
+                    ]
+                ],
+                "1867": [
+                    [
+                        "15,000"
+                    ]
+                ],
+                "1868": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "1870": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1873": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "1879": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "1880": [
+                    [
+                        "37,860 (add more if needed - effectively unlimited)"
+                    ]
+                ],
+                "1881": [
+                    [
+                        "10,320"
+                    ]
+                ],
+                "1883": [
+                    [
+                        "11,000"
+                    ]
+                ],
+                "1889": [
+                    [
+                        "7,000"
+                    ]
+                ],
+                "1891": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1893": [
+                    [
+                        "7,200"
+                    ]
+                ],
+                "1895": [
+                    [
+                        "6,528"
+                    ]
+                ],
+                "1898": [
+                    [
+                        "15,520"
+                    ]
+                ],
+                "1899": [
+                    [
+                        "17,000"
+                    ]
+                ],
+                "2038": [
+                    [
+                        "10,000"
+                    ]
+                ],
+                "1822CA": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1824 v2": [
+                    [
+                        "12,000"
+                    ],
+                    [
+                        "4,000 (Cisleithania 2-player variant)"
+                    ],
+                    [
+                        "9,000 (Cisleithania 3-player variant)"
+                    ]
+                ],
+                "1827Jr": [
+                    [
+                        "11,640"
+                    ]
+                ],
+                "1829 Mainline": [
+                    [
+                        "20,000 (approx.)"
+                    ]
+                ],
+                "1830 Cardgame": [
+                    [
+                        "Not stated, assumed to be unlimited"
+                    ]
+                ],
+                "1830BC": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "1830Lummerland": [
+                    [
+                        "2,000"
+                    ]
+                ],
+                "1830NL": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1837SX": [
+                    [
+                        "11,000"
+                    ]
+                ],
+                "1838 Rheinland": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "1847AE": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "1853 v2": [
+                    [
+                        "15,000 - the game is supplied with 17,760 and the amount you use can be increased or\n    decreased to change the length of the game"
+                    ]
+                ],
+                "1862EA": [
+                    [
+                        "15,000"
+                    ]
+                ],
+                "1862EA v2": [
+                    [
+                        "15,000"
+                    ]
+                ],
+                "1865 Sardinia": [
+                    [
+                        "8,000 for the normal game\n    6,000 for the short game"
+                    ]
+                ],
+                "1869 The Golden Spike": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "1869 USA West": [
+                    [
+                        "36,000"
+                    ]
+                ],
+                "1876 v2": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "1876-30": [
+                    [
+                        "4,500"
+                    ]
+                ],
+                "1876-30 v2": [
+                    [
+                        "4,500"
+                    ]
+                ],
+                "1876-35": [
+                    [
+                        "4,500"
+                    ]
+                ],
+                "1876-35 v2": [
+                    [
+                        "4,500"
+                    ]
+                ],
+                "18??": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18Africa": [
+                    [
+                        "14,000"
+                    ]
+                ],
+                "18AL": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18Ardennes": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18BL": [
+                    [
+                        "10,000"
+                    ]
+                ],
+                "18C2C": [
+                    [
+                        "48,000 for the standard game, 36,000 for the short game"
+                    ]
+                ],
+                "18Chesapeake": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18CLE": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18CZ": [
+                    [
+                        "13,840 (add more if needed - effectively unlimited)"
+                    ]
+                ],
+                "18Dixie": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18EC": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18EU": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18EZ": [
+                    [
+                        "5,870 for Level 1\n    6,000 for Levels 2 and 3"
+                    ]
+                ],
+                "18FL": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18GA": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18GA v2": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18GB": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "18GL": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18GM": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18IN": [
+                    [
+                        "13,500"
+                    ]
+                ],
+                "18Ireland": [
+                    [
+                        "4,000"
+                    ]
+                ],
+                "18JP-T": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18Kaas": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18Lilliput": [
+                    [
+                        "3,760"
+                    ]
+                ],
+                "18Mex": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "18MS": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18MW": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18Neb": [
+                    [
+                        "6,000"
+                    ]
+                ],
+                "18NK": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18NL": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18NW": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18NY": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18NYC": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18OE": [
+                    [
+                        "54,000"
+                    ]
+                ],
+                "18PA": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18Rhl Rhineland": [
+                    [
+                        "9,000"
+                    ]
+                ],
+                "18Ruhr": [
+                    [
+                        "13,000"
+                    ]
+                ],
+                "18SA": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18Scan": [
+                    [
+                        "6,000"
+                    ]
+                ],
+                "18SS": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18SY-G": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18SY-O": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "18TN": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18US": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "18USA": [
+                    [
+                        "12,000 (add more if needed - effectively unlimited)"
+                    ]
+                ],
+                "18VA": [
+                    [
+                        "8,000"
+                    ]
+                ],
+                "18West": [
+                    [
+                        "12,000"
+                    ]
+                ],
+                "Crisis": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "Poseidon": [
+                    [
+                        "16,512"
+                    ]
+                ],
+                "Railroad Barons": [
+                    [
+                        "16,512"
+                    ]
+                ],
+                "Rolling Stock": [
+                    [
+                        "Unlimited"
+                    ]
+                ],
+                "Steam Over Holland": [
+                    [
+                        "5,640 (not stated in the rules, counted from my set)"
+                    ]
+                ]
+            }
+        ],
+        [
+            "15.4 - Other items in limited supply",
+            {
+                "1761": [
+                    [
+                        "48 income markers"
+                    ]
+                ],
+                "1812": [
+                    [
+                        "24 loan chits, 5 mine tokens"
+                    ]
+                ],
+                "1817": [
+                    [
+                        "20 5-share/10-share markers, 3 +10 bridge tokens, 6 +10 coal tokens, 1\n    Bank of New York interest marker, 70 Bank of New York loan markers"
+                    ]
+                ],
+                "1822": [
+                    [
+                        "7 sets of 6 bid tokens"
+                    ]
+                ],
+                "1844": [
+                    [
+                        "5 tunnel companies, 5 mountain companies, 6 mountain-revenue markers."
+                    ]
+                ],
+                "1854": [
+                    [
+                        "Mail contracts: 6 small and 6 large."
+                    ]
+                ],
+                "1867": [
+                    [
+                        "18 loan markers"
+                    ]
+                ],
+                "1880": [
+                    [
+                        "60 building permits, 14 capitalisation cards"
+                    ]
+                ],
+                "1881": [
+                    [
+                        "13 bonus markers"
+                    ]
+                ],
+                "1883": [
+                    [
+                        "31 event cards, 24 political support cards, 2 FSF Anchor markers, 1 SV\n    Anchor marker, 24 concession advancement tokens (eight sets of 3), 1 10-sided die"
+                    ]
+                ],
+                "1891": [
+                    [
+                        "26 loan markers (100), 12 loan markers (300), 8 +10 markers"
+                    ]
+                ],
+                "1893": [
+                    [
+                        "10 Anleihe des Stadt Koln bonds, 5 industry tokens"
+                    ]
+                ],
+                "1822CA": [
+                    [
+                        "7 sets of 6 bid tokens"
+                    ]
+                ],
+                "1824 v2": [
+                    [
+                        "26 towns tokens (for the Goods Time variant)"
+                    ]
+                ],
+                "1830 Cardgame": [
+                    [
+                        "1 Dividends Paid locomotive, 48 player cards"
+                    ]
+                ],
+                "1830BC": [
+                    [
+                        "Waterworks markers - 3 1s, 6 2s, 3 3s, 5 4s, 3 6s, 3 8s, 4 Ms."
+                    ]
+                ],
+                "1837SX": [
+                    [
+                        "Secondary railway tokens - 4 sets of 3"
+                    ]
+                ],
+                "1861 v1": [
+                    [
+                        "40 loan markers"
+                    ]
+                ],
+                "1861 v2": [
+                    [
+                        "18 loan markers"
+                    ]
+                ],
+                "1862EA": [
+                    [
+                        "39 train permits, 24 train warranty cards"
+                    ]
+                ],
+                "1862EA v2": [
+                    [
+                        "39 train permits, 25 train warranty tokens"
+                    ]
+                ],
+                "1865 Sardinia": [
+                    [
+                        "18 loan cards, 40 value 1 traffic chips (black), 20 value 5 traffic chips\n    (purple), 30 value 10 traffic chips (blue)"
+                    ]
+                ],
+                "1869 USA West": [
+                    [
+                        "3 ability used markers, 1 ATSF 2nd lay marker, 12 mine cards"
+                    ]
+                ],
+                "18??": [
+                    [
+                        "12 off-board area value strips (various values), 2 Basin City Shipping\n    tokens, 1 Calhoun Cattle Company token, 3 Farmers Union tokens, 2 Faustian Accounting\n    tokens, 2 Inland Steel Company tokens, 1 Oreburg Mining Company token, 4 Oreburg\n    Right-of-Way tokens, 1 Pioneer Investments token, 1 Terminal Realty token"
+                    ]
+                ],
+                "18Ardennes": [
+                    [
+                        "5 ferry tokens, 5 fort tokens, 4 mine tokens"
+                    ]
+                ],
+                "18BL": [
+                    [
+                        "3 EHG access tokens"
+                    ]
+                ],
+                "18IN": [
+                    [
+                        "16 loan markers, 6 stock round order cards,2 +10 auto markers, 3 +20 port\n    markers, 2 +10 steel markers,"
+                    ]
+                ],
+                "18Lilliput": [
+                    [
+                        "10 action cards, 5 character cards, 4 Dimen's Land Copy cards, 1 scrapped\n    trains card, 1 train pool card, 1 first player card, 3 share price index cards, 1 round\n    card, 4 player aid cards, 1 scoring notepad"
+                    ]
+                ],
+                "18Neb": [
+                    [
+                        "2 bridge discount tokens, 1 cattle token"
+                    ]
+                ],
+                "18NK": [
+                    [
+                        "1 BTS token"
+                    ]
+                ],
+                "18NY": [
+                    [
+                        "6 coal bonus tokens, 24 connection bonus tokens, 2 stagecoach tokens"
+                    ]
+                ],
+                "18NYC": [
+                    [
+                        "36 event cards, 6 stock round order cards, 12 loan markers, 4 PATH tokens,\n    5 Staten Island Ferry tokens, 1 +10 token, 1 +20 token, 1 +30 token, 16 closed bid auction\n    sheets, 6 envelopes, 6 pencils, 10 NYCTA bonds"
+                    ]
+                ],
+                "18OE": [
+                    [
+                        "9 red zone tiles for the scenarios, 45 patronage tiles, 16 track rights\n    chits"
+                    ]
+                ],
+                "18PA": [
+                    [
+                        "2 mining rights bonus tokens"
+                    ]
+                ],
+                "18Ruhr": [
+                    [
+                        "51 coal mine development markers, 51 steel mill development markers, 20\n    switch engine markers, 8 railway link markers, 18 active pMC location markers, 18 active\n    pMC status markers, 10 passive pMC location markers, 6 Montan Company location markers,"
+                    ]
+                ],
+                "18SA": [
+                    [
+                        "9 mine markers, 10 loan markers, 3 harbour markers"
+                    ]
+                ],
+                "18SY": [
+                    [
+                        "24 surplus soil markers, 12 cement markers, 1 +20 marker, 1 +20 (+10)\n    marker"
+                    ]
+                ],
+                "18US": [
+                    [
+                        "1 +10 Erie Canal token, 1 +10 customs house token, 1 +20 Mississippi River\n    Bridge token, 1 +20 Great Lakes Ferry token"
+                    ]
+                ],
+                "18USA": [
+                    [
+                        "1 +10 bridge token, 1 +10 coal token, 2 +10 tokens, 4 +10/+20 mining\n    tokens, 4 +10/+20 resource tokens, 1 +10/+20 token, 2 $30 tokens, 1 $40 token, 1 $50\n    token, 1 boomtown token, 1 free station token, 7 no subsidy tokens, 11 red area value\n    tokens, 1 resource token, 70 Bank of New York markers"
+                    ]
+                ],
+                "Poseidon": [
+                    [
+                        "1 Delian League marker, 8 high culture markers"
+                    ]
+                ]
+            }
         ]
     ]
 }
