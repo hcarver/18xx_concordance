@@ -633,6 +633,11 @@
             "subtitle": "A card game inspired by 18xx",
             "baseRules": []
         },
+        "Steam Over Holland": {
+            "code": "Steam Over Holland",
+            "subtitle": "The Netherlands",
+            "baseRules": []
+        },
         "1876 (1830)": {
             "code": "1876 (1830)",
             "subtitle": "Trinidad - using 1830 rules",

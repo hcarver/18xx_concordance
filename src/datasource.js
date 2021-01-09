@@ -83,6 +83,13 @@ function parseGameList($, h2) {
     }
   }
 
+  // Ensure the last item in the list is added.
+  games[game_code] = {
+    code: game_code,
+    subtitle: gameSubtitle.join(" "),
+    baseRules: BASE_RULES[game_code] || []
+  }
+
   games["1876 (1830)"] = {
     code: "1876 (1830)",
     subtitle: "Trinidad - using 1830 rules",
