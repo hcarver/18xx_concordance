@@ -12,6 +12,9 @@ const BASE_RULES = {
   "1830 v3": ["1830"],
   "1830Lummerland": ["1830"],
   "1830NL": ["1830"],
+  "1849v1": ["1849v1&3", "1849v1", "1849"],
+  "1849v3": ["1849v1&3", "1849v3&4", "1849v3", "1849"],
+  "1849v4": ["1849v4", "1849v3&4", "1849"],
   "1876v2": ["1830"],
   "1899": ["1830"],
   "18AL": ["18GA"],
@@ -24,7 +27,8 @@ const BASE_RULES = {
 // Games which the original page lists as a single entry which we divide into multiple entries.
 const COMBINED_GAMES = [
   "1876",
-  "18SY"
+  "18SY",
+  "1849"
 ]
 
 // Games where the code we parse from the games list isn't the one that's used on the rest of the page.
@@ -110,7 +114,21 @@ function parseGameList($, h2) {
     subtitle: "18SY - Original rules",
     baseRules: ["18SY"]
   }
-
+  games["1849v1"] = {
+    code: "1849v1",
+    subtitle: "1849 (Sicily, originally 1850) v1",
+    baseRules: ["1849v1&3", "1849v1", "1849"]
+  }
+  games["1849v3"] = {
+    code: "1849v3",
+    subtitle: "1849 (Sicily, originally 1850) v3.0",
+    baseRules: ["1849v1&3", "1849v3&4", "1849v3", "1849"]
+  }
+  games["1849v4"] = {
+    code: "1849v4",
+    subtitle: "1849 (Sicily, originally 1850) v4.16",
+    baseRules: ["1849v4", "1849v3&4", "1849"]
+  }
   return games
 }
 
