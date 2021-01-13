@@ -105,11 +105,6 @@
             "subtitle": "Australia",
             "baseRules": []
         },
-        "1849": {
-            "code": "1849",
-            "subtitle": "Sicily (originally issued as 1850 ) - Releases 1, 3.0 and 4.16",
-            "baseRules": []
-        },
         "1850": {
             "code": "1850",
             "subtitle": "The Midwest",
@@ -667,6 +662,34 @@
             "baseRules": [
                 "18SY"
             ]
+        },
+        "1849v1": {
+            "code": "1849v1",
+            "subtitle": "1849 (Sicily, originally 1850) v1",
+            "baseRules": [
+                "1849v1&3",
+                "1849v1",
+                "1849"
+            ]
+        },
+        "1849v3": {
+            "code": "1849v3",
+            "subtitle": "1849 (Sicily, originally 1850) v3.0",
+            "baseRules": [
+                "1849v1&3",
+                "1849v3&4",
+                "1849v3",
+                "1849"
+            ]
+        },
+        "1849v4": {
+            "code": "1849v4",
+            "subtitle": "1849 (Sicily, originally 1850) v4.16",
+            "baseRules": [
+                "1849v4",
+                "1849v3&4",
+                "1849"
+            ]
         }
     },
     "rules": [
@@ -835,7 +858,7 @@
                 "18CLE": "Yes.",
                 "18Lilliput": "Yes.",
                 "Crisis": "Yes.",
-                "Posedion": "Yes.",
+                "Poseidon": "Yes.",
                 "Railroad Barons": "Yes.",
                 "1853 v2": "No; except for the shares you received with your initial bid, which may be sold for �5 less than you paid for them.",
                 "18GB": "Yes, for half the current market price.",
@@ -844,6 +867,7 @@
                 "18EU": "Not applicable.",
                 "18EZ Level 1": "Not applicable.",
                 "18Ireland": "No. Note that this applies to the first regular stock round of the game, which takes place after the initial stock round.",
+                "18NK": "No, and may not sell in the second stock round either (unless playing with the Early Sell variant). Further, a company's shares may onle be sold once it has operated.",
                 "18OE": "No. Shares in a regional company may never be sold; other shares may not be sold during Train Phase 1.",
                 "18West": "Only for the UP.",
                 "Rolling Stock": "No. Public companies do not exist in the first round.",
@@ -927,7 +951,6 @@
                 "1876-30 v2": "Yes, at 5 or more over face value and over any other bid.",
                 "18AL": "Yes, at 5 or more over face value and over any other bid.",
                 "18C2C": "Yes, at 5 or more over face value and over any other bid.",
-                "18Chesapeake": "Yes, at 5 or more over face value and over any other bid.",
                 "18CLE": "Yes, at 5 or more over face value and over any other bid.",
                 "18EC": "Yes, at 5 or more over face value and over any other bid.",
                 "18EZ Level 3": "Yes, at 5 or more over face value and over any other bid.",
@@ -947,6 +970,7 @@
                 "18IN": "Yes, at face value of the item or a multiple of 5 over any other bid.",
                 "1869 USA West": "Yes, at a multiple of 5 over par and over any other bid.",
                 "18BL": "Yes, at a multiple of 5 over par and over any other bid.",
+                "18Chesapeake": "Yes, at a multiple of 5 over par and over any other bid.",
                 "18GL": "Yes, at a multiple of 5 over par and over any other bid.",
                 "18Ireland": "Yes, at a multiple of 5 over par and over any other bid.",
                 "18NW": "Yes, at a multiple of 5 over par and over any other bid.",
@@ -1244,7 +1268,6 @@
                 "18Mex": "From the second stock round onwards.",
                 "18MS": "From the second stock round onwards.",
                 "18MW": "From the second stock round onwards.",
-                "18NK": "From the second stock round onwards.",
                 "18NL": "From the second stock round onwards.",
                 "18PA": "From the second stock round onwards.",
                 "18SA": "From the second stock round onwards.",
@@ -1264,6 +1287,7 @@
                 "18EZ Level 1": "Not Applicable (no share dealing).",
                 "18IN": "After the start of phase 4. Before this, may only own privates and minor companies, neither of which can be sold.",
                 "18Ireland": "From the second regular stock round onwards. Note that the initial stock round is followed by the first regular stock round.",
+                "18NK": "From the third stock round onwards (or second if playing with the Early Sell variant), and also after it has operated.",
                 "18NY": "After it has operated; except that you may sell NYC shares may be sold the stock round after it is formed even if it has not operated.",
                 "18OE": "After Train Phase 1. Shares of regional companies may never be sold.",
                 "18West": "After it has operated, but the UP is considered to have operated prior to the start of the game and may be sold in the first stock round."
@@ -2788,12 +2812,12 @@
                         "Comments"
                     ],
                     [
-                        "",
                         "31",
                         "21",
                         "16",
                         "13",
                         "11",
+                        "",
                         "",
                         "",
                         "",
@@ -4914,7 +4938,7 @@
                         "20",
                         "16",
                         "13",
-                        "",
+                        "11",
                         "",
                         "",
                         "",
@@ -5770,7 +5794,7 @@
                 "1880": "None.",
                 "1881": "60%.",
                 "1883": "60%.",
-                "1889": "60%. Shares in the brown zone do not count towards this.",
+                "1889": "60%.",
                 "1891": "60%. Shares in the brown zone do not count towards this.",
                 "1893": "60%.",
                 "1895": "None.",
@@ -6337,6 +6361,7 @@
                 "18JP-T": "Privates, in ORs, once a 3 train has been sold.",
                 "18Kaas": "Privates, in ORs, once a 3 train has been sold.",
                 "18Mex": "Privates, in ORs, once a 3 train has been sold.",
+                "18NK": "Privates, in ORs, once a 3 train has been sold.",
                 "18NL": "Privates, in ORs, once a 3 train has been sold.",
                 "18SS": "Privates, in ORs, once a 3 train has been sold.",
                 "18SY-G": "Privates, in ORs, once a 3 train has been sold.",
@@ -6356,7 +6381,6 @@
                 "18IN": "Privates, in ORs, once a 3 train has been sold, and their own shares from the bank pool in ORs. They can also sell these shares, but cannot buy and sell in the same turn.",
                 "18MW": "Their own, in SRs.",
                 "18NY": "Their own, in SRs.",
-                "18NK": "Their own, by 'redemption', in SRs. Also privates, in ORs, once a 3 train has been sold.",
                 "18NW": "Their own, in ORs, but not in their first operating turn. They can also sell, but cannot buy and sell in the same turn.",
                 "18NYC": "Privates in ORs, and shares from companies that are part of their affiliation (colour) in ORs. They can also sell these shares, but cannot buy and sell in the same turn.",
                 "18OE": "Major company may buy their own, in ORs. They can also sell, but cannot buy and sell in the same turn. They may also buy one abandoned minor company per OR from the bank pool.",
@@ -6767,7 +6791,7 @@
                 "1830": "Yes.",
                 "1831": "Only for shares sold. (Par increases upon floating.)",
                 "1832": "Yes.",
-                "1834": "Yes.",
+                "1834": "Yes, but there are no par prices, and the money received is based on the price at whatever the sixth share is sold for, which may not be the price the President's certificate was sold for.",
                 "1835": "Only for shares sold.",
                 "1837": "You get full capitalisation for the shares that have been and will be sold, but not for the coal and minor companies that will fold in.",
                 "1841": "Only for shares sold.",
@@ -7332,7 +7356,6 @@
                 "18??": "Yes, if both are yellow.",
                 "18FL": "Yes, if both are yellow.",
                 "18MW": "Yes, if both are yellow.",
-                "18NK": "Yes, if both are yellow.",
                 "18PA": "Yes, if both are yellow.",
                 "18Africa": "Up to four yellow track tiles as long as the track is continuous, or for the first turn of companies starting on double-city hexes, one green then three yellows. This continuous route can be traced through pre-printed track in a brown board hex. Track laying must finish if a connection is made to an existing city. It must also finish if a tile of types 3, 6, 7 or 115 is laid.",
                 "18Ardennes": "Yes, for public companies only. They may lay two yellow tiles or upgrade one tile.",
@@ -7349,6 +7372,7 @@
                 "18Mex": "Yes, for major companies only.",
                 "18MS": "Yes, a second yellow tile in its first OR.",
                 "18NW": "Yes, a second yellow tile in its first OR.",
+                "18NK": "Companies that have not completed a destination run may lay or upgrade three tiles. One may be an upgrade, but not of a yellow tile laid in the same turn. Once the destination run has been completed, they may only lay or upgrade one tile.",
                 "18NY": "Yes, either two tile lays or one tile lay and one upgrade, subject to sufficient funds being available.",
                 "18NYC": "All Lines may lay two yellow tiles in each operating round. In addition all Lines except the NYCTA may lay a third yellow tile in their first operating turn.",
                 "18OE": "Yes. Companies may lay a number of tiles based on available tile points. Different company types have different tile points available, and different tile types/actions cost different numbers of points.",
@@ -8044,7 +8068,7 @@
                 "1859": "Those for shares in the bank pool.",
                 "1860": "None.",
                 "1861": "Those for shares in the company treasury.",
-                "1862": "None.",
+                "1862": "Those for shares in the company treasury. They can only get there through the 'redemption' process.",
                 "1867": "Those for shares in the company treasury.",
                 "1868": "Those for shares in the bank pool.",
                 "1870": "Those for unissued shares and redeemed shares.",
@@ -8208,6 +8232,7 @@
                 "1899": "No.",
                 "2038": "It may make a 50% payout. Odd units are rounded in favour of the shareholders. If a company does this its share price only moves one step to the right, not two.",
                 "18C2C": "It may make a 50% payout. Odd units are rounded in favour of the shareholders.",
+                "18NK": "It may make a 50% payout. Odd units are rounded in favour of the shareholders.",
                 "18NY": "It may make a 50% payout. Odd units are rounded in favour of the shareholders.",
                 "18SS": "It may make a 50% payout. Odd units are rounded in favour of the shareholders.",
                 "18USA": "It may make a 50% payout. Odd units are rounded in favour of the shareholders.",
@@ -8275,7 +8300,6 @@
                 "18??": "It may make a 50% payout. Odd units are rounded in favour of the company.",
                 "18EZ Level 3": "It may make a 50% payout. Odd units are rounded in favour of the company.",
                 "18GM": "It may make a 50% payout. Odd units are rounded in favour of the company.",
-                "18NK": "It may make a 50% payout. Odd units are rounded in favour of the company.",
                 "18BL": "It may make a 75% payout.",
                 "18SA": "It may make a 50% payout if the total dividend is equal to or higher than the current share price. If this makes the payment of dividends for individual 10% share difficult, the shareholder dividend is reduced by 5 and this amount added to the company treasury (e.g. a dividend of 90 would result in a shareholder dividend of 45, making payment of 4� per share problematic, so the shareholder dividend would be reduced to 40 and the deducted 5 added to the company treasury).",
                 "Rolling Stock": "The President freely sets a dividend per share within a range from zero to one third of the share price."
@@ -8965,7 +8989,7 @@
                 "1829": "Yes.",
                 "1830": "Yes.",
                 "1831": "Not applicable.",
-                "1832": "Yes.",
+                "1832": "No.",
                 "1834": "Not applicable.",
                 "1835": "No.",
                 "1837": "No. But it allows a company owned by the same director to build there free. Others have to pay.",
@@ -9321,7 +9345,7 @@
                 "18Ireland": "First 8H train.",
                 "18Mex": "First 5 train, except for the SR, which closes when the fifth 3 train is bought.",
                 "18Neb": "When the first 5/7 train is bought.",
-                "18NK": "First 5 train, but the BTS token lasts to the first 6 train.",
+                "18NK": "First 5 train, but the BTSZ token lasts to the first 6 train.",
                 "18NY": "First 12H train.",
                 "18NYC": "First 3E train.",
                 "18OE": "When its special ability is used, or the owning player closes it during a stock round.",
@@ -9358,6 +9382,7 @@
                 "1837": "Yes, after a bankruptcy.",
                 "1841": "No, but one can end up there after a bankruptcy, a merger, or the Ferdinandean secession, and is then \"freezed\".",
                 "1842": "Yes, after a bankruptcy.",
+                "1846": "No, but it can end up there after a bankruptcy.",
                 "1847": "Yes, after a bankruptcy.",
                 "1853": "Yes, and is then operated by official receiver if no other player becomes the Director.",
                 "1860": "Yes, and is then operated by official receiver if no other player becomes the Director.",
@@ -9371,14 +9396,15 @@
                 "": "Yes, after a bankruptcy.",
                 "1838 Rheinland": "Yes, after a bankruptcy.",
                 "1876-35": "Yes, after a bankruptcy.",
-                "1869 USA West": "Yes, if the player selling shares is the only player that owns shares in the company. It may also end up in the pool if two or more players hold the same number of shares and more than the current president, or it is not possible to exchange shares with another player following a share sale.",
-                "Crisis": "No, but it can get there in receivership.",
-                "18EZ Level 1": "Not Applicable (no share dealing).",
-                "18MS": "Yes.",
+                "18NK": "Yes, after a bankruptcy.",
                 "18Ardennes": "No, but it can end up there after a bankruptcy.",
                 "18Scan": "No, but it can end up there after a bankruptcy.",
                 "18US": "No, but it can end up there after a bankruptcy.",
                 "18West": "No, but it can end up there after a bankruptcy.",
+                "1869 USA West": "Yes, if the player selling shares is the only player that owns shares in the company. It may also end up in the pool if two or more players hold the same number of shares and more than the current president, or it is not possible to exchange shares with another player following a share sale.",
+                "Crisis": "No, but it can get there in receivership.",
+                "18EZ Level 1": "Not Applicable (no share dealing).",
+                "18MS": "Yes.",
                 "Rolling Stock": "Yes, but it will be immediately exchanged for an ordinary share certificate with the new President.",
                 "Rest": "No."
             }
@@ -9494,6 +9520,7 @@
                 "18GL": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
                 "18MW": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
                 "18Neb": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
+                "18NK": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
                 "18NY": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
                 "18Rhl Rhineland": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
                 "18Scan": "Not usually. The bankrupt player's wealth is reduced to zero and they take no further part in the game. If all players but one have gone bankrupt, the game ends with the remaining player as the winner.",
@@ -9522,7 +9549,6 @@
                 "18JP-T": "Yes.",
                 "18Kaas": "Yes.",
                 "18Mex": "Yes.",
-                "18NK": "Yes.",
                 "18NL": "Yes.",
                 "18NW": "Yes.",
                 "18NYC": "Yes.",
@@ -10259,6 +10285,7 @@
                 "1867": "Public.",
                 "1873": "The bank has unlimited money.",
                 "1880": "The bank has unlimited money.",
+                "1889": "Public.",
                 "2038": "Public.",
                 "1830 Cardgame": "The bank has unlimited money.",
                 "1830BC": "The bank has unlimited money.",
